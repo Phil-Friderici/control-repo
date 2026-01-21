@@ -5,7 +5,7 @@ class profile::haproxy {
 
   haproxy::listen { 'puppet00':
     collect_exported => false,
-    ipaddress        => $facts['ec2_metadata']['public-ipv4'],
+    ipaddress        => $facts['networking']['ip'], # $facts['ec2_metadata']['public-ipv4'],
     ports            => [8140],
   }
   haproxy::balancermember { 'server00':
