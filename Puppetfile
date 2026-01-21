@@ -7,6 +7,7 @@ forge 'https://forge.puppet.com'
 #mod 'puppetlabs/concat',  '7.0.1'
 mod 'puppetlabs/haproxy',  '8.2.0'
 mod 'puppetlabs/stdlib',  '9.7.0'
+mod 'puppetlabs/concat',  '9.1.0'
 
 # Modules from Git
 # Examples: https://github.com/puppetlabs/r10k/blob/master/doc/puppetfile.mkd#examples
