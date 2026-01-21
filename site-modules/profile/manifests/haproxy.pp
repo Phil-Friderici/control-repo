@@ -4,7 +4,7 @@ class profile::haproxy {
   include ::haproxy
 
   # Loadbalancer for Puppet Agents on port 8140
-  haproxy::listen { 'puppet00':
+  haproxy::listen { 'agent':
     collect_exported => false,
     ipaddress        => $facts['networking']['ip'],
     ports            => [8140],
@@ -32,7 +32,7 @@ class profile::haproxy {
   }
 
   # Loadbalancer for PXP Agents on port 8142
-  haproxy::listen { 'puppet00':
+  haproxy::listen { 'pxp':
     collect_exported => false,
     ipaddress        => $facts['networking']['ip'],
     ports            => [8142],
