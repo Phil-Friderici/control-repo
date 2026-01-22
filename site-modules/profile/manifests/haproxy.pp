@@ -6,7 +6,12 @@ class profile::haproxy {
   haproxy::listen { 'puppet00':
     collect_exported => false,
     ipaddress        => $facts['networking']['ip'], # $facts['ec2_metadata']['public-ipv4'],
-    ports            => [8140,8142],
+    ports            => [8140],
+  }
+  haproxy::listen { 'puppet-pxp':
+    collect_exported => false,
+    ipaddress        => $facts['networking']['ip'], # $facts['ec2_metadata']['public-ipv4'],
+    ports            => [8142],
   }
   haproxy::balancermember { 'server00':
     listening_service => 'puppet00',
