@@ -30,9 +30,9 @@ class profile::haproxy {
     options           => 'check',
   }
 
-  haproxy::listen { 'puppet-pxp':
-    collect_exported => false,
-    ipaddress        => $facts['networking']['ip'], # $facts['ec2_metadata']['public-ipv4']
-    ports            => [8142],
-  }
+#  haproxy::listen { 'puppet-pxp':
+#    collect_exported => false,
+#    ipaddress        => $facts['networking']['ip'], # $facts['ec2_metadata']['public-ipv4']
+#    ports            => [8142],
+#  }
 }
