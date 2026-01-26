@@ -8,6 +8,12 @@ class profile::haproxy {
     ipaddress        => $facts['networking']['ip'], # $facts['ec2_metadata']['public-ipv4']
     ports            => [8140],
   }
+  haproxy::listen { 'puppet-pxp':
+    collect_exported => false,
+    ipaddress        => $facts['networking']['ip'], # $facts['ec2_metadata']['public-ipv4']
+    ports            => [8142],
+  }
+
   haproxy::balancermember { 'compiler1':
     listening_service => 'puppet00',
     server_names      => 'ec2-108-129-199-101.eu-west-1.compute.amazonaws.com',
@@ -29,10 +35,4 @@ class profile::haproxy {
     ports             => [8140],
     options           => 'check',
   }
-
-#  haproxy::listen { 'puppet-pxp':
-#    collect_exported => false,
-#    ipaddress        => $facts['networking']['ip'], # $facts['ec2_metadata']['public-ipv4']
-#    ports            => [8142],
-#  }
 }
