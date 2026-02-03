@@ -10,25 +10,25 @@ class profile::haproxy {
   }
   haproxy::balancermember { 'compiler01':
     listening_service => 'puppet-agent',
-    server_names      => 'ec2-108-129-187-188.eu-west-1.compute.amazonaws.com',
-    ipaddresses       => '108.129.187.188',
+    server_names      => 'ec2-108-130-56-191.eu-west-1.compute.amazonaws.com',
+    ipaddresses       => '108.130.56.191',
     ports             => [8140],
     options           => 'check',
   }
   haproxy::balancermember { 'compiler02-legacy':
     listening_service => 'puppet-agent',
-    server_names      => 'ec2-108-129-174-50.eu-west-1.compute.amazonaws.com',
-    ipaddresses       => '108.129.174.50',
+    server_names      => 'ec2-34-241-252-206.eu-west-1.compute.amazonaws.com',
+    ipaddresses       => '34.241.252.206',
     ports             => [8140],
     options           => 'check',
   }
-  haproxy::balancermember { 'compiler03-latency':
-    listening_service => 'puppet-agent',
-    server_names      => 'ec2-18-218-90-197.us-east-2.compute.amazonaws.com',
-    ipaddresses       => '18.218.90.197',
-    ports             => [8140],
-    options           => 'check',
-  }
+#  haproxy::balancermember { 'compiler03-latency':
+#    listening_service => 'puppet-agent',
+#    server_names      => 'ec2-18-218-90-197.us-east-2.compute.amazonaws.com',
+#    ipaddresses       => '18.218.90.197',
+#    ports             => [8140],
+#    options           => 'check',
+#  }
 
   haproxy::listen { 'puppet-pxp':
     collect_exported => false,
@@ -37,23 +37,23 @@ class profile::haproxy {
   }
   haproxy::balancermember { 'pxp01':
     listening_service => 'puppet-pxp',
-    server_names      => 'ec2-108-129-187-188.eu-west-1.compute.amazonaws.com',
-    ipaddresses       => '108.129.187.188',
+    server_names      => 'ec2-108-130-56-191.eu-west-1.compute.amazonaws.com',
+    ipaddresses       => '108.130.56.191',
     ports             => [8142],
     options           => 'check',
   }
   haproxy::balancermember { 'pxp02-legacy':
     listening_service => 'puppet-pxp',
-    server_names      => 'ec2-108-129-174-50.eu-west-1.compute.amazonaws.com',
-    ipaddresses       => '108.129.174.50',
+    server_names      => 'ec2-34-241-252-206.eu-west-1.compute.amazonaws.com',
+    ipaddresses       => '34.241.252.206',
     ports             => [8142],
     options           => 'check',
   }
-  haproxy::balancermember { 'pxp03-latency':
-    listening_service => 'puppet-pxp',
-    server_names      => 'ec2-18-218-90-197.us-east-2.compute.amazonaws.com',
-    ipaddresses       => '18.218.90.197',
-    ports             => [8142],
-    options           => 'check',
-  }
+#  haproxy::balancermember { 'pxp03-latency':
+#    listening_service => 'puppet-pxp',
+#    server_names      => 'ec2-18-218-90-197.us-east-2.compute.amazonaws.com',
+#    ipaddresses       => '18.218.90.197',
+#    ports             => [8142],
+#    options           => 'check',
+#  }
 }
